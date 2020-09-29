@@ -1,1 +1,96 @@
 
+#include <iostream>
+#include <cmath>
+using namespace std; 
+
+int main() {
+	setlocale(LC_ALL, "RUSSIAN");
+	int a;
+	cout << "Какую задачу вы хотите решить(1.2.3.4.5.6.7)" << endl;
+	cout << "Местами А и В - 1	" << endl;
+	cout << "Местами А.В.С - 2" << endl;
+	cout << "Местами А.В.С(другая версия) - 3" << endl;
+	cout << "Значение ф-ии y = x^6... - 4" << endl;
+	cout << "Значение ф-ии y = 4(x-3)^6... - 5" << endl;
+	cout << "A^8 - 6" << endl;
+	cout << "A^15 - 7" << endl;
+	cout << "============================================================" << endl;
+	cin >> a;
+	system("cls");
+	switch (a) {
+	case 1: {
+		int A, B, temp;
+		cout << "Введите А, затем В" << endl;
+		cin >> A >> B;
+		temp = B;
+		B = A;
+		A = temp;
+		cout << endl;
+		cout << "A,B: " << A << " " << B << endl;
+		break;
+	}
+	case 2: {
+		
+		int A,B,C, temp, temp1;
+		cout << "Введите A,B,C: " << endl; cin >> A >> B >> C;
+		
+		temp = B;
+		B = A;
+		temp1 = C;
+		C = temp;
+		A = temp1;
+		
+		cout << "A,B,C: " << A << " " << B << " " << C << endl;
+		break;
+	}
+	case 3: {
+
+		int A, B, C, temp,temp1;
+		cout << "Введите A,B,C: " << endl; cin >> A >> B >> C;
+		temp = C;
+		C = A;
+		temp1 = B;
+		B = temp;
+		A = temp1;
+		cout << "A,B,C: " << A << " " << B << " " << C << endl;
+		break;
+	}
+	case 4: {
+		int x;
+		cout << "x = "; cin >> x; cout << endl;
+		cout << "y = " << 3 * pow(x, 6) - 6 * pow(x, 2) - 7 << endl;
+		break;
+	}
+	case 5: {
+		int x;
+		cout << "x = "; cin >> x; cout << endl;
+		cout << "y = " << 4 * pow(x-3, 6) - 7 * pow(x-3,3) + 2 << endl;
+		break;
+	}
+	case 6:{
+		int A, temp;
+		cout << "A = "; cin >> A;
+		temp = A * A;
+			A = temp * temp;
+		temp = A * A;
+		
+		cout << "A^8 = " << temp << endl;
+		break;
+	}
+	case 7: {
+		int A, temp, temp1;
+		cout << "A = "; cin >> A;
+		temp = A * A;
+		temp1 = temp * A;
+		A = temp * temp1;
+		temp = A * A;
+		temp1 = temp * A;
+
+		cout << "A^15 = " << temp1 << endl;
+		break;
+	}
+}
+
+	system("PAUSE");
+	return 0;
+}
