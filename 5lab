@@ -1,0 +1,67 @@
+#include <iostream>
+#include <cmath>
+using namespace std; 
+
+int main() {
+	setlocale(LC_ALL, "RUSSIAN");
+	int a;
+	cout << "Какую задачу вы хотите решить(1.2.3.4.5)" << endl;
+	cout << "Расстояние между точками - 1	" << endl;
+	cout << "Длины отрезкой и сумма - 2" << endl;
+	cout << "Произведение длин отрезков - 3" << endl;
+	cout << "Стороны прямоугольника - 4" << endl;
+	cout << "Координаты треугольника - 5" << endl;
+
+	cin >> a;
+	switch (a) {
+	case 1: {
+		int x1, x2, y1, y2;
+		cout << "Введите x1,x2,y1,y2: "; cin >> x1 >> x2 >> y1 >> y2;
+		system("cls");
+		cout << "Расстояние между точками: " << sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2)) << endl;
+	}
+	case 2: {
+		
+		int A,B,C;
+		cout << "Введите A,B,C: "; cin >> A >> B >> C;
+		system("cls");
+		cout << "Длина отрезка АС: " << (C-A) << endl;
+		cout << "Длина отрезка BС: " << (B - C) << endl;
+		cout << "Сумма отрезков: " << (B-C)+(C-A) << endl;
+	}
+	case 3: {
+
+		int A, B, C;
+		cout << "Введите A,B,C: "; 
+		cout << "Последнее число обязательно больше А,но меньше В" << endl;
+		cin >> A >> B >> C;
+		if (C > B or C < A) { cout << "Ошибка" << endl; break; }
+		system("cls");
+		cout << "Произведение длин отрезков: " << (C - A) * (B - C) << endl;
+	}
+	case 4: {
+		int x1, x2, y1, y2;
+		cout << "Введите x1,y1,x2,y2: "; cin >> x1 >> y1 >> x2 >> y2;
+		int x3, x4, y3, y4;
+		x3 = x1;
+		y3 = y2;
+		y4 = y1;
+		x4 = x2;
+		cout << "Периметр = " << (abs(x4-x1) + abs(y2 - y4)) *2<< endl;
+		cout << "Площадь = " << abs(x4 - x1) * abs(y2 - y4) << endl;
+	}
+	case 5: {
+		double x1, x2, y1, y2, x3,y3 , A,B,C, p;
+		cout << "Введите x1,y1,x2,y2,x3,y3: "; cin >> x1 >> y1 >> x2 >> y2 >> x3 >> y3;
+		A = sqrt(pow(x1 - x2, 2) + pow(y1 - y2, 2));
+		B = sqrt(pow(x1 - x3, 2) + pow(y1 - y3, 2));
+		C = sqrt(pow(x2 - x3, 2) + pow(y2 - y3, 2)); 
+		cout << A << B << C << endl;
+		p = (A + B + C) / 2;
+		cout << "Периметр =" << A + B + C << endl;
+		cout << "Площадь = " << sqrt(p*(p-A)* (p-B) * (p-C)) << endl;
+	}
+
+	}
+	system("PAUSE");
+	return 0;
