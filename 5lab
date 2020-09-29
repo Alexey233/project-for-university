@@ -19,6 +19,7 @@ int main() {
 		cout << "Введите x1,x2,y1,y2: "; cin >> x1 >> x2 >> y1 >> y2;
 		system("cls");
 		cout << "Расстояние между точками: " << sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2)) << endl;
+		break;
 	}
 	case 2: {
 		
@@ -28,6 +29,7 @@ int main() {
 		cout << "Длина отрезка АС: " << (C-A) << endl;
 		cout << "Длина отрезка BС: " << (B - C) << endl;
 		cout << "Сумма отрезков: " << (B-C)+(C-A) << endl;
+		break;
 	}
 	case 3: {
 
@@ -38,6 +40,7 @@ int main() {
 		if (C > B or C < A) { cout << "Ошибка" << endl; break; }
 		system("cls");
 		cout << "Произведение длин отрезков: " << (C - A) * (B - C) << endl;
+		break;
 	}
 	case 4: {
 		int x1, x2, y1, y2;
@@ -49,6 +52,7 @@ int main() {
 		x4 = x2;
 		cout << "Периметр = " << (abs(x4-x1) + abs(y2 - y4)) *2<< endl;
 		cout << "Площадь = " << abs(x4 - x1) * abs(y2 - y4) << endl;
+		break;
 	}
 	case 5: {
 		double x1, x2, y1, y2, x3,y3 , A,B,C, p;
@@ -60,6 +64,7 @@ int main() {
 		p = (A + B + C) / 2;
 		cout << "Периметр =" << A + B + C << endl;
 		cout << "Площадь = " << sqrt(p*(p-A)* (p-B) * (p-C)) << endl;
+		break;
 	}
 
 	}
