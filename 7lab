@@ -1,0 +1,82 @@
+#include <iostream>
+#include <cmath>
+using namespace std; 
+
+int main() {
+	setlocale(LC_ALL, "RUSSIAN");
+	int a;
+	cout << "Какую задачу вы хотите решить(1.2.3.4.5.6)" << endl;
+	cout << "Углы - радианы 1	" << endl;
+	cout << "Радианы - углы - 2" << endl;
+	cout << "Конфеты - 3" << endl;
+	cout << "Машины - 4" << endl;
+	cout << "Уравнение - 5" << endl;
+	cout << "Система уравнений - 6" << endl;
+	
+	cout << "============================================================" << endl;
+	cin >> a;
+	system("cls");
+	switch (a) {
+	case 1: {
+		int A;
+		cout << "Введите угол ";
+		cin >> A;
+		cout << endl;
+		cout << A/180 << "*p   радиан" << endl;
+		break;
+	}
+	case 2: {
+		
+		int A;
+		cout << "Кол-во радиан ";
+		cin >> A;
+		cout << endl;
+		cout << A*180 << "/p угол" << endl;
+		break;
+	}
+	case 3: {
+
+		int X, Y, A, B;
+		cout << "Введите сколько X киллограмм  конфет стоит A рублей" << endl;
+		cin >> X >> A;
+		cout << "Введите сколько Y конфет" << endl; cin >> Y;
+		cout << "1 кг конфет стоит: "<< A / X << endl;
+		cout << "Y кг конфет стоит: " << A * Y / X<< endl;
+		break;
+	}
+	case 4: {
+		int u1, u2, S;
+		cout << "Введите скорость первого и второго автомобиля" << endl; cin >> u1 >> u2;
+		cout << "Расстояние между ними " << endl; cin >> S;
+		int T;
+		cout << "Сколько часов: "; cin >> T; 
+		cout << "Расстояние между автомобилями через T часов = " << S + ((u1 + u2)*T) << endl;
+		break;
+	}
+	case 5: {
+		double A, B;
+		cout << "Введите коэф. ур-ия Ax + B = 0 " << endl; cin >> A >> B;
+		cout << "X = " << -B / A;
+		break;
+	}
+	case 6:{
+		double a1, a2, b1, b2,c1,c2;
+		cout << "Решим уравнение с двумя неизвестными. Введите a1,a2,b1,b2,c1,c2" << endl;
+		cin >> a1 >> a2 >> b1 >> b2 >> c1 >> c2;
+		double op1;
+		op1 = b2 * a1 - a2 * b1;
+			double a11, a22, b11, b22;
+		a11 = b2; a22 = -b1; b11 = -a2; b22 = a1;
+		double a111, b111;
+		a111 = a11 * c1 + a22 * c2;
+		b111 = b11 * c1 + b22 * c2;
+		cout << "x = " << 1/op1 * a111 << endl;
+		cout << "y = " << 1/op1 * b111 << endl;
+		break;
+	}
+	//В последнем задании не стал заморачиваться с названием переменных - это слау, матричный метод.
+}
+
+	system("PAUSE");
+	return 0;
+}
