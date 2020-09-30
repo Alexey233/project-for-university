@@ -1,0 +1,69 @@
+#include <iostream>
+#include <cmath>
+using namespace std; 
+
+int main() {
+	setlocale(LC_ALL, "RUSSIAN");
+	int a;
+	cout << "Какую задачу вы хотите решить(1.2.3.4.5)" << endl;
+	cout << "байты - 1" << endl;
+	cout << "А и Б отрезок- 2" << endl;
+	cout << "А и Б отреок второй вариант- 3" << endl;
+	cout << "Перемена цифр - 4" << endl;
+	cout << "Трехзначное число - 5" << endl;
+	
+	cout << "============================================================" << endl;
+	cin >> a;
+	system("cls");
+	switch (a) {
+	case 1: {
+		int A;
+		cout << "Введите кол-во байт "; cin >> A;
+		cout << "Килобайт = " << A / 1024 << endl;
+		break;
+	}
+	case 2: {
+		
+		int A, B;
+		cout << "Введите А и В(А > B) "; cin >> A >> B;
+	
+
+		cout << "Влезает "  << A / B <<  endl;
+		
+		break;
+	}
+	case 3: {
+		int A, B;
+		cout << "Введите А и В(А > B) "; cin >> A >> B;
+
+
+		cout << "Остается " << A % B << endl;
+
+		break;
+	}
+	case 4: {
+		int A;
+		cout << "Введите цифру "; cin >> A;
+		int temp = A % 10;
+		A = temp * 10 + A / 10;
+		cout << "Новое число "<< A << endl;
+		break;
+	}
+	case 5: {
+		int A, newA;
+		int temp1, temp2,temp3;
+		cout << "Введите число "; cin >> A;
+		temp1 = A / 100;
+		temp2 = A / 10 % 10;
+		temp3 = A % 10;
+		newA = temp2 * 100 + temp3 * 10 + temp1;
+		cout << "Новое число: " << newA << endl;
+		break;
+	}
+	
+	
+}
+
+	system("PAUSE");
+	return 0;
+}
