@@ -1,0 +1,79 @@
+#include <iostream>
+#include <cmath>
+using namespace std; 
+
+int main() {
+	setlocale(LC_ALL, "RUSSIAN");
+	int a;
+	cout << "Какую задачу вы хотите решить(1.2.3.4.5)" << endl;
+	cout << "Секунды - 1" << endl;
+	cout << "Номер дня недели- 2" << endl;
+	cout << "Номер дня недели(вариант 2)- 3" << endl;
+	cout << "Квадраты - 4" << endl;
+	cout << "Столетия - 5" << endl;
+	
+	cout << "============================================================" << endl;
+	cin >> a;
+	system("cls");
+	switch (a) {
+	case 1: {
+		int N;
+		cout << "Введите кол-во секунд с начала суток "; cin >> N;
+		cout << "С начала последней минуты прошло " << N % 60 << " секунд" << endl;
+		break;
+	}
+	case 2: {
+		
+		int K,N;
+		cout << "Введите K(1-365) "; cin >> K;
+		cout << endl;
+		N = K % 7;
+		if (N == 0) { cout << "Воскресенье" << endl; }
+		if (N == 1) { cout << "Понедельник" << endl; }
+		if (N == 2) { cout << "Вторник" << endl; }
+		if (N == 3) { cout << "Среда" << endl; }
+		if (N == 4) { cout << "Четверг" << endl; }
+		if (N == 5) { cout << "Пятница" << endl; }
+		if (N == 6) { cout << "Суббота" << endl; }
+
+		break;
+	}
+	case 3: {
+		int K, N;
+		cout << "Введите K(1-365) " << endl; cin >> K;
+		cout << "Введите N(1-7) " << endl; cin >> N;
+
+		int Z;
+		Z = ((K+N-2) % 7) + 1;
+
+		if (Z == 1) { cout << "Понедельник"; }
+		if (Z == 2) { cout << "Вторник"; }
+		if (Z == 3) { cout << "Среда"; }
+		if (Z == 4 ) { cout << "Четверг"; }
+		if (Z == 5) { cout << "Пятница"; }
+		if (Z == 6 ) { cout << "Суббота"; }
+		if (Z == 7) { cout << "Воскресенье"; }
+		break;
+	}
+	case 4: {
+		int A,B,C;
+		cout << "Введите стороны прямоугольника A,B "; cin >> A >> B; cout << endl;
+		cout << "Введите С, сторону квадрата "; cin >> C; cout << endl;
+		if (C > A and C > B) { cout << "error" << endl; break; }
+		else { cout << "Возможно поместить " << A * B / C << " квадратов" << endl; }
+		break;
+	}
+	case 5: {
+		int A;
+		cout << "Введите год" << endl;
+		cin >> A;
+		cout << "Номер столетия " << ((A - 1) / 100) + 1;
+		break;
+	}
+	
+	
+}
+
+	system("PAUSE");
+	return 0;
+}
