@@ -1,0 +1,109 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std; 
+
+int main() {
+	setlocale(LC_ALL, "RUSSIAN");
+	int a;
+	cout << "Какую задачу вы хотите решить(1.2.3.4.5.6)" << endl;
+	cout << "Две переменные - 1" << endl;
+	cout << "Три числа -  2" << endl;
+	cout << "Три точки - 3" << endl;
+	cout << "Кординаты - 4" << endl;
+	cout << "Строкаописание - 5" << endl;
+	cout << "Строкаописание 2 - 6" << endl;
+	
+	
+	cout << "============================================================" << endl;
+	cin >> a;
+	system("cls");
+	switch (a) {
+	case 1: {
+		int A,B;
+
+		cout << "Введите А и В "; cin >> A >> B;
+		if (A == B) { A = 0; B = 0; cout << A << " " << B << endl; }
+		else if (A > B) { B = A; cout << A << " " << B ; }
+		else if (B > A) { A = B; cout << A << " " << B; }
+		break;
+	}
+	case 2: {
+
+		int A, B, C,max,min;
+		cout << "Введите А,В,С "; cin >> A >> B >> C;
+		cout << endl;
+		if (A > B and A > C) { max = A; if (B > C) { min = B; } else { min = C; } }
+		if (B > C and B > A) { max = B; if (A > C) { min = A; } else { min = C; } }
+		if (C > A and C  >B) { max = C; if (A > B) { min = A; } else { min = B; } }
+		cout << min + max << endl;
+		break;
+	}
+	case 3: {
+		int A, B, C;
+		cout << "Введите А,В,С "; cin >> A >> B >> C;
+		cout << endl;
+		if (abs(B - A) > abs(C - A)) { cout << "точка С ближе к А, находится на расстоянии " << abs(C - A) << endl; }
+		else cout << "точка B ближе к А, находится на расстоянии " << abs(B - A) << endl;
+		
+		break;
+	}
+	case 4: {
+		int x, y;
+		cout << "Введите x i y "; cin >> x >> y; cout << endl;
+		if (x > 0 and y > 0) { cout << "1 четверть"; }
+		if (x < 0 and y > 0) { cout << "2 четверть"; }
+		if (x < 0 and y < 0) { cout << "3 четверть"; }
+		if (x > 0 and y < 0) { cout << "4 четверть"; }
+		break;
+	}
+	case 5: {
+		int N;
+		cout << "Введите число" << endl;
+		cin >> N;
+		
+		if (N > 0) {
+			if (N % 2 == 0) {
+				cout << "Положительное четное число" << endl;
+		}
+			else {
+				cout << "Положительное нечетное число" << endl;
+			}
+		}
+		else if (N < 0){
+			if (N % 2 == 0) {
+				cout << "Отрицательное четное число" << endl;
+			}
+			else { cout << "Отрицательное нечетное число" << endl; }
+		}
+		else {
+			cout << "Нулевое число";
+		}
+		break;
+	}
+	case 6: {
+		int A;
+		cout << "Введите число" << endl;
+		cin >> A;
+		if (A < 10)
+		{
+			if (A % 2 == 0)  cout << "Четная цифра";
+			else cout << "Нечетная цифра";
+		}
+		else if (A < 100 and A>9) {
+			if (A % 2 == 0) { cout << "Четное двузначное число" << endl; }
+			else cout << "Нечетное двузначное число" << endl;
+		}
+		else if (A > 99 and A < 1000) {
+			if (A % 2 == 0) { cout << "Четное трехзначное число" << endl; }
+			else cout << "Нечетное трехзначное число" << endl;
+		}
+		break;
+	}
+	
+	
+}
+
+	system("PAUSE");
+	return 0;
+}
