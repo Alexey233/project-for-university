@@ -1,0 +1,90 @@
+#include <iostream>
+#include <cmath>
+using namespace std; 
+
+int main() {
+	setlocale(LC_ALL, "RUSSIAN");
+	int a;
+	cout << "Какую задачу вы хотите решить(1.2.3.4.5.6.7)" << endl;
+	cout << "Истинность А В - 1" << endl;
+	cout << "Истинность А В С -  2" << endl;
+	cout << "Истинность целое- 3" << endl;
+	cout << "Истинность трехзначное - 4" << endl;
+	cout << "Истинность четызначное - 5" << endl;
+	cout << "Прямог треуг - 6" << endl;
+	cout << "Существует ли треуг - 7" << endl;
+	
+	cout << "============================================================" << endl;
+	cin >> a;
+	system("cls");
+	switch (a) {
+	case 1: {
+		int A,B;
+
+		cout << "Введите А и В "; cin >> A >> B;
+		if (A > 2 and B <= 3) cout << "true" << endl;
+		else cout << "false";
+		break;
+	}
+	case 2: {
+		
+		int A,B,C;
+		cout << "Введите А,В,С "; cin >> A >> B >> C;
+		cout << endl;
+		if (A < B and B < C) { cout << "true" << endl; }
+		else cout << "false";
+		break;
+	}
+	case 3: {
+		int N;
+		cout << "Введите число "; cin >> N;
+		if (9 < N and N < 100 and N % 2 == 0) cout << "true" << endl;
+		else cout << "false";
+		break;
+	}
+	case 4: {
+		int N;
+		cout << "Введите число "; cin >>N; cout << endl;
+		int Z, K, P;
+		Z = N % 10;
+		K = N / 100;
+		P = N % 100 / 10;
+		if ((Z > P and P > K) or (K > P and P > Z)) { cout << "true"; }
+		else { cout << "false"; }
+		break;
+	}
+	case 5: {
+		int N;
+		cout << "Введите число" << endl;
+		cin >> N;
+		int Z, K, P, H;
+		Z = N / 1000;
+		K = N % 1000 / 100;
+		P = N % 1000 % 100 / 10;
+		H = N % 10;
+		if (Z == H and K == P) cout << "true";
+		else cout << "false";
+		break;
+	}
+	case 6: {
+		int A,B,C;
+		cout << "Введите стороны треугольника" << endl;
+		cin >> A >> B >> C;
+		if (A*A + B*B == C*C or A * A == B * B  + C * C or A * A +  C * C == B * B) cout << "true";
+		else cout << "false";
+		break;
+	}
+	case 7: {
+		int A, B, C;
+		cout << "Введите стороны треугольника" << endl;
+		cin >> A >> B >> C;
+		if (A + B > C and A + C > B and B + C > C) cout << "true";
+		else cout << "false";
+		break;
+	}
+	
+}
+
+	system("PAUSE");
+	return 0;
+}
