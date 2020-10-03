@@ -1,0 +1,127 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std; 
+
+
+
+int main() {
+	setlocale(LC_ALL, "RUSSIAN");
+	int a;
+	cout << "Какую задачу вы хотите решить(1.2.3.4.5)" << endl;
+	cout << "K do L - 1" << endl;
+	cout << "arif progr -  2" << endl;
+	cout << "A2,A4,A6 - 3" << endl;
+	cout << "loc max - 4" << endl;
+	cout << "arr max - 5" << endl;
+	
+	
+	
+	cout << "============================================================" << endl;
+	cin >> a;
+	system("cls");
+	switch (a) {
+	case 1: {
+		double N, K, L; double S = 0;
+		cout << "N,K,L "; cin >> N >> K >> L;
+		int *arr = new int[N];
+		for (int i = 0; i < N; i++) {
+			cin >> arr[i];
+		}
+		for (int i = K-1; i < L; i++) {
+			S = S + arr[i];
+		}
+		cout << "Арифм прогрессия " << S / (L - K + 1) << endl;
+		delete arr;
+		break;
+	}
+	case 2: {
+		int N;
+		cout << "Введите N " << endl; cin >>  N;
+		int *arr = new int[N];
+		for (int i = 0; i < N; i++) {
+			cin >> arr[i];
+	}
+		int d = arr[1] - arr[0];
+		for (int i = 1; i < N; i++) {
+			if (d != arr[i] - arr[i-1]) { d = 0; }
+		}
+		
+		cout << d;
+		delete arr;
+		break;
+	}
+		
+	case 3: {
+		int N; int min = 999999999;
+		cout << "Введите А,B,N " << endl; cin >> N;
+		int *A = new int[N];
+		for (int i = 0; i < N; i++)
+		{
+			if (i % 2 == 0 and A[i] < min) {
+				min = A[i];
+			}
+		}
+
+		cout << "min = "<< min;
+			delete A;
+		break;
+	}
+	case 4: {
+		int N;
+		cout << "Введите N " << endl; cin >> N;
+		int *A = new int[N];
+		for (int i = 0; i < N; i++) {
+			cin >> A[i];
+		}
+		int k;
+		for (int i = 0; i < N; i++)
+		{
+			if (i == 0) {
+				A[i] > A[i + 1]; k = i + 1;
+		}
+			if (i != 0 and i != N - 1) {
+				if (A[i] > A[i - 1] and A[i] > A[i + 1]) { k = i+1; }
+			}
+			if (i == N -1) {
+				if (A[i] > A[i - 1]) { k = i + 1; }
+			}
+
+		}
+		cout << "Локальный максимум на элементе " << k << endl;
+		delete A;
+		break;
+	}
+	case 5: {
+
+		int N;
+		cout << "Введите N " << endl; cin >> N;
+		int *A = new int[N];
+
+		for (int i = 0; i < N; i++)
+		{
+			cin >> A[i];
+		}
+		int i1, i2;
+		for (int i = 0; i < N; i++)
+		{
+			for (int j = i; j < N; j++) {
+				int k = A[i];
+				if (j != i and A[j] == k) { i1 = i; i2 = j; }
+			}
+		}
+
+		cout << endl;
+		cout << i1 << i2;
+		cout << endl;
+		delete A;
+		break;
+	}
+	
+	
+	
+}
+
+	system("PAUSE");
+	return 0;
+}
