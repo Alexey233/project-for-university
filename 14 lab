@@ -1,1 +1,104 @@
 
+#include <iostream>
+#include <cmath>
+
+using namespace std; 
+
+
+
+int main() {
+	setlocale(LC_ALL, "RUSSIAN");
+	int a;
+	cout << "Какую задачу вы хотите решить(1.2.3.4.5.6)" << endl;
+	cout << "Числа А и В - 1" << endl;
+	cout << "Числа А и В отрезок -  2" << endl;
+	cout << "Целое число - 3" << endl;
+	cout << "Вклад - 4" << endl;
+	cout << "Нод - 5" << endl;
+	cout << "Фибоначчи - 6" << endl;
+	
+	
+	cout << "============================================================" << endl;
+	cin >> a;
+	system("cls");
+	switch (a) {
+	case 1: {
+		int A,B;
+		cout << "Введите А и В" << endl; cin >> A >> B;
+		for (int i = A; i <= B; i++)
+		{
+			for (int j = 0; j < i; j++) {
+				cout << i << " ";
+			}
+		}
+
+		break;
+	}
+	case 2: {
+		int A, B;
+		cout << "Введите А и В" << endl; cin >> A >> B;
+		while (A >= B) {
+			A = A - B;
+		}
+		cout << A;
+		break;
+	}
+	case 3: {
+		int N, K, S = 0; int  i = 0;
+		cout << "N = "; cin >> N;
+		while (N > S) {
+			i++;
+			S = S + i;
+			
+		}
+		cout << endl;
+		cout << "S = " << S << endl;
+		cout << "i = " << i << endl;
+		break;
+	}
+	case 4: {
+		double P, S = 1000;
+		int K=0;
+		cout << "P: "; cin >> P;
+		while (S < 1100) {
+			K++;
+			S = S + S * P / 100;
+
+		}
+		cout << "S " << S << endl;
+		cout << "K " << K << endl;
+		break;
+	}
+	case 5: {
+
+		int A, B;
+		cout << "A,B = "; cin >> A >> B;
+		while (A != B) {
+			if (A > B) { A = A - B; }
+			else { B = B - A; }
+		}
+		cout << A;
+		break;
+	}
+	case 6: {
+		
+		int N, S,k;
+		cout << "N = "; cin >> N;
+		int c, a = 1, b = 1;
+		for (int i = 3; i < 1000; i++) {
+			
+			c = a + b;
+			a = b; b = c;
+			k = i;
+			if (c == N) { break; }
+		}
+		cout << k;
+		break;
+	}
+	
+	
+}
+
+	system("PAUSE");
+	return 0;
+}
