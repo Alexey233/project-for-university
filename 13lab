@@ -1,1 +1,86 @@
 
+
+#include <iostream>
+#include <cmath>
+
+using namespace std; 
+
+int main() {
+	setlocale(LC_ALL, "RUSSIAN");
+	int a;
+	cout << "Какую задачу вы хотите решить(1.2.3.4.5)" << endl;
+	cout << "Конфеты - 1" << endl;
+	cout << "Произведение -  2" << endl;
+	cout << "Квадрат - 3" << endl;
+	cout << "Сумма строки - 4" << endl;
+	cout << "Сумма.разность - 5" << endl;
+	
+	
+	
+	cout << "============================================================" << endl;
+	cin >> a;
+	system("cls");
+	switch (a) {
+	case 1: {
+		double A;
+		cout << "Введите стоимость 1 кг конфет" << endl; cin >> A;
+		for (double i = 1; i <= 10; i++) {
+			double P = i / 10;
+			cout << A * P << " ";
+		}
+		break;
+	}
+	case 2: {
+		double N,S =1;
+		double h = 1.1;
+		cout << "A: "; cin >> N;
+		for (int i = 1; i <= N; i++) {
+			
+
+			S = S * h;
+				h = h + 0.1;
+		}
+		cout << S;
+		break;
+	}
+	case 3: {
+		int N,S = 0,K;
+		cout << "N: "; cin >> N;
+		for (int i = 1; i <= N; i++) {
+			K = 2 * i - 1;
+			S = S + K;
+		}
+		cout << "S: " << S << endl;
+		break;
+	}
+	case 4: {
+		int A,N,S = 0;
+		cout << "A,N = "; cin >> A >> N;
+		for (int i = 0; i <= N; i++) {
+			S = S + pow(A, i);
+		}
+		cout << S << endl;
+		break;
+	}
+	case 5: {
+
+		int A, N, S = 0;
+		cout << "A,N = "; cin >> A >> N;
+		for (int i = 0; i <= N; i = i +2) {
+			S = S + pow(A, i);
+		}
+		for (int i = 1; i <= N; i = i + 2) {
+			S = S - pow(A, i);
+		}
+		cout << S << endl;
+
+		break;
+	}
+	
+	
+	
+}
+
+	system("PAUSE");
+	return 0;
+}
