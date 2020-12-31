@@ -1,0 +1,276 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main() {
+	setlocale(LC_ALL, "RUSSIAN");
+	int a;
+	cout << "Какую задачу вы хотите решить(1.2.3.4.5)" << endl;
+	cout << "min max str - 1" << endl;
+	cout << "min max stolb - 2" << endl;
+	cout << "pomenyt mestami - 3" << endl;
+	cout << "vosr posl - 4" << endl;
+	cout << "summ - 5" << endl;
+
+
+
+	cout << "============================================================" << endl;
+	cin >> a;
+	system("cls");
+	switch (a) {
+	case 1: {
+		const int n = 3;
+		const int m = 3;
+
+		int jx, jn, mx, mn, t;
+		int a[m][n];
+		for (int i = 0; i < m; i++) {
+
+			for (int j = 0; j < n; j++) {
+				cin >> a[i][j];
+			}
+		}
+			for (int i = 0; i < m; i++) {
+				jx = jn = 0;
+				mx = mn = a[i][0];
+				for (int j = 1; j < n; j++) {
+					if (a[i][j] > mx) {
+						jx = j;
+						mx = a[i][j];
+					}
+					if (a[i][j] < mn) {
+						jn = j;
+						mn = a[i][j];
+					}
+				}
+				t = a[i][jx];
+				a[i][jx] = a[i][jn];
+				a[i][jn] = t;
+			}
+			for (int i = 0; i < m; i++) {
+
+				for (int j = 0; j < n; j++) {
+					cout << a[i][j]<< " ";
+				}
+				cout << endl;
+			}
+			break;
+		}
+	
+	case 2: {
+		srand(time(0));
+		int H, W, max_index, min_index;
+		cout << "Введите H: ";
+		cin >> H;
+		cout << "Введите W: ";
+		cin >> W;
+		cout << "\n";
+		double max, min;
+		int** M = new int* [H];
+		for (int i = 0; i < H; i++)
+			M[i] = new int[W];
+
+		for (int i = 0; i < H; i++)
+		{
+			for (int j = 0; j < W; j++)
+			{
+				M[i][j] = (rand() % 100);
+				cout << M[i][j] << " ";
+			}
+			cout << endl;
+		}
+
+		max = min = M[0][0];
+		max_index = min_index = 0;
+
+		for (int j = 0; j < W; j++)
+		{
+			for (int i = 0; i < H; i++)
+			{
+				if (max < M[i][j])
+				{
+					max = M[i][j];
+					max_index = j;
+				}
+
+				if (min > M[i][j])
+				{
+					min = M[i][j];
+					min_index = j;
+				}
+			}
+		}
+
+		if (max_index == min_index)
+			cout << "\nMax and Min\n\n";
+		else
+		{
+			for (int i = 0; i < H; i++)
+				swap(M[i][max_index], M[i][min_index]);
+
+			cout << "\nПосле того как поменял\n\n";
+
+			for (int i = 0; i < H; i++)
+			{
+				for (int j = 0; j < W; j++)
+					cout <<  M[i][j] << " ";
+				cout << endl;
+			}
+		}
+
+		for (int i = 0; i < H; i++)
+			delete[] M[i];
+		delete[] M;
+	}
+
+	case 3: {
+		srand(time(0));
+		int H, W;
+		cout << "Введите H: ";
+		cin >> H;
+		cout << "Введите W: ";
+		cin >> W;
+		cout << "\n";
+		double max, min;
+		int** M = new int* [H];
+		for (int i = 0; i < H; i++)
+			M[i] = new int[W];
+		cout << "Do" << endl;
+		for (int i = 0; i < H; i++)
+		{
+			for (int j = 0; j < W; j++)
+			{
+				M[i][j] = (rand() % 100);
+				cout << M[i][j] << " ";
+			}
+			cout << endl;
+		}
+
+		for (int i = 0; i < H; i++)
+		{
+			for (int j = 0; j < W; j++)
+			{
+				if (i < H / 2 && j < W / 2)
+				{
+					int tmp = M[i][j];
+					M[i][j] = M[i + H / 2][j + W / 2];
+					M[i + H / 2][j + W / 2] = tmp;
+				}
+			}
+		}
+		cout << "Posle" << endl;
+
+		for (int i = 0; i < H; i++)
+		{
+			for (int j = 0; j < W; j++)
+			{
+
+				cout << M[i][j] << " ";
+			}
+			cout << endl;
+		}
+		for (int i = 0; i < H; i++)
+			delete[] M[i];
+		delete[] M;
+
+		break;
+	}
+	case 4: {
+		int m, n;
+		cout << "N: ";
+		cin >> n;
+
+		cout << "M: ";
+		cin >> m;
+		int a[10][10];
+
+		int i, j;
+		for (i = 1; i <= m; ++i) {
+			cout << i << " : " << endl;
+			for (j = 1; j <= n; ++j) {
+				cout << j << " : ";
+				cin >> a[i][j];
+			}
+		}
+
+		int m2 = m, i2;
+		for (i = 1; i < m; ++i) {
+			i2 = 1;
+			--m2;
+			while (i2 <= m2) {
+				if (a[i2][1] > a[i2 + 1][1])
+					for (j = 1; j <= n; ++j) {
+						a[i2][j] += a[i2 + 1][j];
+						a[i2 + 1][j] = a[i2][j] - a[i2 + 1][j];
+						a[i2][j] = a[i2][j] - a[i2 + 1][j];
+					}
+				++i2;
+			}
+		}
+
+		for (i = 1; i <= m; ++i) {
+
+			for (j = 1; j <= n; ++j) {
+				cout << " : " << a[i][j];
+
+			}
+			cout << " : " << endl;
+		}
+		break;
+	}
+	case 5: {
+		setlocale(LC_ALL, "Rus");
+		int N, M,sum;
+		cout << "Введите размер массива -> ";
+		cin >> N;
+		M = N;
+		int** a = new int* [N];
+		for (int i = 0; i < N; i++) {
+			a[i] = new int[M];
+		}
+		srand(time(0));
+		cout << "Исходный массив" << endl;
+		for (int i = 0; i < N; i++) {
+			for (int j = 0; j < M; j++) {
+				a[i][j] = (rand() % 20);
+				cout <<  a[i][j] << " ";
+			}
+			cout << endl;
+		}
+		cout << endl;
+		//=========================================================//
+		for (int i = 0; i < N; ++i) {
+			sum = 0;
+			for (int j = i; j >= 0; --j) {
+				sum += a[i - j][N - 1 - j];
+				std::cout << a[i - j][N - 1 - j] << ' ';
+			}
+			std::cout << "  sum: " << sum << std::endl;
+		}
+
+		for (int j = 1; j < N; ++j) {
+			sum = 0;
+			for (int i = j; i < N; ++i) {
+				sum += a[i][i - j];
+				std::cout << a[i][i - j] << ' ';
+			}
+			std::cout << "  sum: " << sum << std::endl;
+		}
+		//-------------------------------------------------------//
+		for (int i = 0; i < N; i++) {
+			delete[]a[i];
+		}
+		delete[] a;
+		break;
+	}
+
+
+
+	}
+
+	system("PAUSE");
+	return 0;
+}
+
+
